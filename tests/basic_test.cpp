@@ -19,8 +19,17 @@ void testSimple() {
     announce<shutdown_request>(&shutdown_request::why);
     server * s = new server();
     auto a = spawn (serv, s);
+    
+    write_request w;
+    w.column ="age";
+    w.key = "holly";
+    w.value = "4";
+    anon_send( a, w) ;
+    
+            
     shutdown_request r ;
     anon_send( a, r);
+    
     await_all_actors_done();
     shutdown();
 
