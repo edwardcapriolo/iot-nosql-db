@@ -5,3 +5,5 @@ cmake_install.cmake
 nbproject
 CTestTestfile.cmake
 tests/CTestTestfile.cmake
+libiot-db.a
+UnitTester
