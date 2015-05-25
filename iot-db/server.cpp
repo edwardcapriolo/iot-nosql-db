@@ -15,10 +15,10 @@ void serv(event_based_actor* self, server* server) {
 
      self->become (
          on<write_request>() >> [=]( write_request& val) {
-             cout << val.key
-             << val.column << ", "
-             << val.value << ")"
-             << endl;
+             //cout << val.key
+             //<< val.column << ", "
+             //<< val.value << ")"
+             //<< endl;
              server->getX();
              //kv.insert( std::pair<string,string>("a", "b"));
              return "abc";

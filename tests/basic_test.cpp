@@ -32,14 +32,17 @@ public:
     auto server_actor = spawn (serv, s);
     auto c = spawn (client, server_actor);
     
-    scoped_actor self;
-    self->trap_exit(true);
-    write_request w{ "holly", "age", "5"};
-    self->sync_send(server_actor,  w).await( [&](const string& what) {
-        aout(self) << "I can do it too " << what << endl;
-      }
-    );
-    self->quit(exit_reason::user_shutdown);
+    {
+        scoped_actor self;
+        //self->trap_exit(true);
+        write_request w{ "holly", "age", "5"};
+        self->sync_send(server_actor,  w).await( [&](const string& what) {
+            //aout(self) << "I can do it too " << what << endl;
+          }
+        );
+    }
+
+
     cout << "here now" << endl;
     
     shutdown_request r ;
