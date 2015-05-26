@@ -26,8 +26,8 @@ public:
   }
 
   void testSimple() {
-    announce<write_request>(&write_request::key, &write_request::column, &write_request::value);
-    announce<shutdown_request>(&shutdown_request::why);
+    announce<write_request>("write_request", &write_request::key, &write_request::column, &write_request::value);
+    announce<shutdown_request>("shutdown_request", &shutdown_request::why);
     server * s = new server();
     auto server_actor = spawn (serv, s);
     auto c = spawn (client, server_actor);
