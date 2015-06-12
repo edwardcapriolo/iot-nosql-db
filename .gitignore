@@ -7,3 +7,4 @@ CTestTestfile.cmake
 tests/CTestTestfile.cmake
 libiot-db.a
 UnitTester
+*.swp
