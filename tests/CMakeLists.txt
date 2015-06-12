@@ -10,10 +10,9 @@ FOREACH(test ${UnitTests_SRCS})
         add_test(${TestName} UnitTester ${TestName})
 ENDFOREACH(test)
 
-include_directories (${PROJECT_SOURCE_DIR}/iot-db)
-
+include_directories (${PROJECT_SOURCE_DIR}/iot-db ${LIBCAF_INCLUDE_DIRS})
 
 link_directories (${PROJECT_SOURCE_DIR}/iot-db)
 
-target_link_libraries (UnitTester cppunit caf_core caf_io iot-db)
+target_link_libraries (UnitTester cppunit iot-db ${LIBCAF_LIBRARIES})
 
